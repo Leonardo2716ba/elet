@@ -1,5 +1,18 @@
 //`timescale 1ns / 1ps
 
+/*
+
+POR FAVOR REINICIAR O FALSTAD PARA O CIRCUITO FUNCIONAR CORRETAMENTE
+LINK SIMULAÇÃO: https://tinyurl.com/247e5dxk
+
+* Integrantes do grupo:
+* João Pedro Morais Ribeiro Lima - 24.2.4031
+* Juan Lucas da Silva - 24.2.4037
+* Kauleu Smith Pereira da Silva - 24.2.4044
+* Leonardo de Souza Gomes - 21.2.4054
+* Luiz Fernando Modesto Freitas Rezende - 24.2.4038
+*/
+
 module motor_4tempos (
     input clk,               // Clock principal (100MHz)
     input reset,             // Sinal de reset
@@ -17,7 +30,6 @@ parameter EXAUSTAO   = 4'b0001;  // 0001
 reg [12:0] rpm_target = 0;
 reg [31:0] counter_ign = 0;  // Contador de ignições
 
-// Lógica principal de controle do motor
 always @(posedge clk or posedge reset) begin
     if (reset) begin
         estado_cilindro1 <= ADMISSAO;
@@ -65,9 +77,6 @@ end
 endmodule
 
 
-// ==============================================
-// Testbench para validar o funcionamento
-// ==============================================
 module tb_motor_4tempos();
     reg clk;
     reg reset;
@@ -83,17 +92,14 @@ module tb_motor_4tempos();
         .rpm(rpm)
     );
     
-    // Clock de 100MHz (10ns período)
     always #5 clk = ~clk;
     
     initial begin
-        // Inicialização
         clk = 0;
         reset = 1;
         #10;
         reset = 0;
 
-        // Monitoramento contínuo
         repeat (5720) begin
             #14;
             $display("Tempo: %t | C1: %b | C2: %b | RPM: %d", 
