@@ -3,6 +3,21 @@
  * Com RPM incrementado a cada ignição (até 8000 RPM)
  */
 
+ /*
+ Link simulação falstad, por favor apertr o botao
+ de reset do falstad para a simulação funcionar corretamente
+ LINK: https://tinyurl.com/2bn8s9xg
+
+
+* Integrantes do grupo:
+ * João Pedro Morais Ribeiro Lima - 24.2.4031
+ * Juan Lucas da Silva - 24.2.4037
+ * Kauleu Smith Pereira da Silva - 24.2.4044
+ * Leonardo de Souza Gomes - 21.2.4054
+ * Luiz Fernando Modesto Freitas Rezende - 24.2.4038
+
+ */
+
 `timescale 1ns / 1ps
 
 module motor_4tempos (
